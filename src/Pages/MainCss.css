@@ -1,0 +1,198 @@
+* {
+  text-decoration: none !important;
+}
+.Left_Side{
+  padding: 20px;
+  float: none !important;
+  text-align: left !important;
+  color: rgb(29, 29, 29);
+  margin: 0px;
+}
+
+.resend_button{
+  display: flow-root !important;
+  display: none;
+  text-align: center;
+  
+}
+.left{
+  text-align: left;
+  padding-left: 75px;
+}
+
+
+.right_side{
+  text-align: right !important;
+}
+
+
+.resend_btn{
+ background-color: transparent !important;
+ border: 0px !important;
+  
+}
+
+.already_more{
+  background-color: transparent !important;
+  border: 0px !important;
+  color: rgb(124, 124, 124);
+}
+
+.loginbox{
+  background-image: linear-gradient(43deg, rgb(149 52 255), rgb(255, 0, 179));
+  width: 80%;
+  padding: 10px;
+  margin: 10%;
+  border-radius: 15px;
+  min-height: 555px;
+  height: 100%;
+}
+.pad{
+  padding-left: 15%;
+  padding-right: 15%;
+  border-radius: 55px;
+
+
+}
+
+.login_logo{
+  width: 150px;
+}
+.white{
+  color: white;
+  text-align: center !important;
+}
+
+.loginbox label {
+	color: #fff !important;
+}
+
+.white a{
+  color: white;
+  width: 100% !important;
+}
+
+.white p{
+  color: white;
+  float: none !important;
+  text-align: center;
+  width: 100% !important;
+
+}
+.white_center{
+  float: none;
+  width: 100% !important;
+  color: white;
+  text-align: center !important;
+}
+
+.TextFieldd{
+  color: white !important;
+
+  border-bottom: solid 1px white !important;
+  border-bottom: solid 1px white !important;
+
+}
+
+.css-1x51dt5-MuiInputBase-input-MuiInput-input{
+  color: white;
+}
+
+
+.yellow_head{
+  text-align: center;
+  color: #ffc107;
+  float: none;
+}
+
+
+.dashbord_head_p{
+  text-align: center !important;
+  color: black;
+  font-size: 22px;
+  font-weight: 500;
+  float: none;
+}
+
+.EventsCard{
+  width: 71%;
+  background-color: rgb(238, 238, 238);
+}
+
+.TaskMainBg{
+  background-color: rgb(255, 239, 239);
+  float: left;
+  width: 100% !important;
+}
+
+.TaskBg{
+  background-color: white;
+  margin-bottom: 50px !important;
+  border-radius: 15px;
+  width: 100% !important;
+  float: left !important;
+}
+.CertificateBoxBg{
+  background-color: white;
+  border-radius: 15px;
+  padding: 0 !important;
+  margin: 5px !important;
+  float: left !important;
+}
+
+.fullwid{
+  width: 100% !important;
+  float: left !important;
+}
+
+.buttonRadius{
+  border-radius: 55px !important;
+
+}
+
+.gray{
+  color: rgb(131, 131, 131);
+  text-align: left !important;
+}
+
+.taskButton{
+  color: black;
+  border: none;
+  background-color: rgb(241, 241, 241);
+}
+
+
+
+
+.cardPaymentBox{
+  background-image: linear-gradient(43deg, rgb(149 52 255), rgb(255, 0, 179));
+  padding: 10px !important;
+  margin: 0% !important;
+  border-radius: 15px;
+  height: 100%;
+}
+
+
+.cardPaymentBox label {
+	color: #fff !important;
+}
+.cardPaymentBox_fullwid{
+  width: 500px !important;
+  float: left !important;
+  padding: 1%;
+  text-align: center;
+  margin: 5%;
+}
+.fullwid_cardPayment{
+  width: 100% !important;
+  float: left !important;
+}
+.css-19kzrtu{
+  margin: 0 !important;
+  padding: 0!important;
+}
+
+.css-1n3h4wo{
+
+  height: auto !important;
+}

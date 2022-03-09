@@ -1,0 +1,55 @@
+
+  .Course_bg{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    min-height: 600px;
+    background-image: url(../../Images/product_bg.png);
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Features_bg{
+    
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    min-height: 600px;
+    background-color: rgb(232, 166, 245);
+    height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.CourseMode{
+    width: 100%;
+    float: left;
+    padding: 2% 0px 0px 8% !important;
+  }
+  
+  .blue_side{
+    color: blue;
+    float: right;
+    text-align: right;
+    width: 100%;
+}
+.CourseMode_side{
+    float: right !important;
+    text-align: right;
+    width: 100%;
+}
+.CourseMode_side_right{
+    color: rgb(0, 0, 0);
+    float: right !important;
+}
+
+.strike{
+  text-decoration: line-through !important;
+}
+.css-1oqv2c0-MuiPaper-root-MuiCard-root{
+border-radius: 30px !important;
+}
