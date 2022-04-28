@@ -1,4 +1,4 @@
-import * as React from 'react';
+import  React,{useState,useEffect} from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -8,6 +8,7 @@ import ProductCard from './ProductCard';
 import Stocks from './Stocks';
 import Technology from './Technology';
 import Design from './Design';
+import axios from '../../../Constants/Axios'
 
 
 function TabPanel(props) {
@@ -49,6 +50,15 @@ export default function BasicTabs() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const [data, setData] = useState([])
+  useEffect(()=>{
+    axios.get('products/')
+      .then(res => {
+        console.log(res.data)
+        setData(res.data.data)   
+      })
+      .catch(err => { if(err.request){ console.log(err.request) } if(err.response){ console.log(err.response) } });
+  },[])
 
 
 
@@ -58,10 +68,9 @@ export default function BasicTabs() {
 
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} centered aria-label="basic tabs example">
-          <Tab label="FINANCE" {...a11yProps(0)} />
-          <Tab label="STOCKS" {...a11yProps(1)} />
-          <Tab label="TECHNOLOGY" {...a11yProps(2)} />
-          <Tab label="DESIGN" {...a11yProps(3)} />
+          {data.map((obj)=>
+          <Tab label={obj.product_name} key={obj.id} id={obj.id} {...a11yProps(0)} />)}
+         
         </Tabs>
       </Box>
       

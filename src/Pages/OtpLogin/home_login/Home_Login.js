@@ -1,23 +1,21 @@
 import React from 'react';
-import logo_footer from '../../Images/logo_white.svg'
+import logo_footer from '../../../Images/logo_white.svg'
 import { Link, useNavigate } from 'react-router-dom';
 import {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import TextField from '@mui/material/TextField';
-import axios from '../../Constants/Axios';
+import axios from '../../../Constants/Axios';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import Snackbar from '@mui/material/Snackbar';
 import Stack from '@mui/material/Stack';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
 import MuiAlert from '@mui/material/Alert';
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
 
-function Login() {
+function Home_Login() {
   const navigate = useNavigate ()
   const validationSchema = Yup.object().shape({
   });
@@ -53,12 +51,12 @@ const getData = async () => {
            }
     })
     .then(function (response) {
-      console.log(response.data.data.access_token)
+      console.log(response.data.message)
       const otptoken=response.data.data.access_token
       setAlertmsg(response.data.message)
       setMsg('success')
       setOpen(true)
-      navigate('/OtpLogin',{state:{token:otptoken}})
+      navigate('/Home_OtpLogin',{state:{token:otptoken}})
       document.getElementById('Phone').value='';
     })
     .catch(err=>{
@@ -143,4 +141,4 @@ console.log(data)
   </div>;
 }
 
-export default Login;
+export default Home_Login;

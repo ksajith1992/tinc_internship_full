@@ -1,8 +1,3 @@
-import '../MainCss.css'
-import '../Home/Home.css'
-import { Link } from 'react-router-dom';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import Login from './Login';
 import React,{useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import TextField from '@mui/material/TextField';
@@ -14,17 +9,16 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import Snackbar from '@mui/material/Snackbar';
 import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 import MuiAlert from '@mui/material/Alert';
-import axios from '../../Constants/Axios';
-import { useLocation } from 'react-router-dom';
+import axios from '../../../Constants/Axios';
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
 
 
-function OtpLogin() {
-  let location = useLocation();
-  const token=location.state.token;
+function Home_Otp() {
   const navigate = useNavigate ()
   const validationSchema = Yup.object().shape({
   });
@@ -60,12 +54,10 @@ const [ip, setIP] = useState('');
                  }
           })
           .then(function (response) {
-            console.log(response.data.data.access_token)
-            localStorage.setItem('token',response.data.data.access_token)
             setAlertmsg(response.data.message)
             setMsg('success')
             setOpen(true)
-            navigate('/CourseList')
+            navigate('/Home_OtpLogin')
           })
           .catch(err=>{
             if(err.request){
@@ -89,38 +81,11 @@ const [ip, setIP] = useState('');
       
           setOpen(false);
         };
-  function resendotp(){
-    axios({
-      method: 'post',
-      url:'mobile_otp_send/',
-      headers: {"Authorization" : `Bearer ${token}`}
-  })
-  .then(function (response) { 
-      setAlertmsg(response.data.message)
-      setMsg('success')
-      setOpen(true)        
-  })
-  .catch(err => { 
-    if(err.request){ console.log(err.request) }
-    if(err.response){ 
-      setAlertmsg(err.response.data.message_list)
-      setMsg('error')
-      setOpen(true)
-     } });
-  }
 
-  return <div>
-    <div className="row p-4">
-
-<div className="col-sm-12 col-md-7">
-<div className="col-sm-12 Left_Side">
-
-<Link to="/Home"> <FontAwesomeIcon icon={faArrowLeft} /> Home </Link>
-<h4 className='pt-3'>Enter the OTP send to registerd phone number/email</h4>
-
-</div>
-<div className="col-sm-12">
-<div className="row p-4 "> 
+  
+  return (
+    <>
+      <div className="row p-4 "> 
       <form onSubmit={handleSubmit(onSubmit)}>
 
       <div className="col-sm-12 col-md-12 mt-5 pt-5 resend_button">
@@ -132,7 +97,7 @@ const [ip, setIP] = useState('');
        </div>
        </form>
        <div className="col-sm-12 col-md-12 resend_button mt-2">
-       <Button className='learn_more' onClick={resendotp}> Resend OTP</Button>
+       {/* <Button className='learn_more' onClick={resendotp}> Resend OTP</Button> */}
        </div>
 
        <div className="col-sm-12 col-md-12 resend_button mt-1">
@@ -149,17 +114,8 @@ const [ip, setIP] = useState('');
      </Stack>
        
 </div>
-</div>
-
-</div>
-
-<div className="col-sm-12 col-md-5">
-<Login />
-</div>
-
-
-</div>
-  </div>;
+    </>
+  );
 }
 
-export default OtpLogin;
+export default Home_Otp;

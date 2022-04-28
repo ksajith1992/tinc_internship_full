@@ -12,6 +12,8 @@ import Newsletter from './Newsletter/Newsletter';
 import Footer from '../../Components/Footer';
 
 function Home() {
+  const token=localStorage.getItem('token');
+  console.log(token,'token')
   return <>
       
       <div id="Banner">

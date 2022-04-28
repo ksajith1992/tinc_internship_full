@@ -1,8 +1,7 @@
-import '../MainCss.css'
-import '../Home/Home.css'
+import '../../MainCss.css'
+import '../../Home/Home.css'
 import { Link } from 'react-router-dom';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import Login from './Login';
 import React,{useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import TextField from '@mui/material/TextField';
@@ -15,14 +14,15 @@ import * as Yup from 'yup';
 import Snackbar from '@mui/material/Snackbar';
 import Stack from '@mui/material/Stack';
 import MuiAlert from '@mui/material/Alert';
-import axios from '../../Constants/Axios';
+import axios from '../../../Constants/Axios';
 import { useLocation } from 'react-router-dom';
+import Home_Login from './Home_Login';
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
 
 
-function OtpLogin() {
+function Home_OtpLogin() {
   let location = useLocation();
   const token=location.state.token;
   const navigate = useNavigate ()
@@ -60,12 +60,11 @@ const [ip, setIP] = useState('');
                  }
           })
           .then(function (response) {
-            console.log(response.data.data.access_token)
             localStorage.setItem('token',response.data.data.access_token)
             setAlertmsg(response.data.message)
             setMsg('success')
             setOpen(true)
-            navigate('/CourseList')
+            navigate('/Productspage')
           })
           .catch(err=>{
             if(err.request){
@@ -154,7 +153,7 @@ const [ip, setIP] = useState('');
 </div>
 
 <div className="col-sm-12 col-md-5">
-<Login />
+<Home_Login />
 </div>
 
 
@@ -162,4 +161,4 @@ const [ip, setIP] = useState('');
   </div>;
 }
 
-export default OtpLogin;
+export default Home_OtpLogin;

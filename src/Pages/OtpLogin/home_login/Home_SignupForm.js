@@ -7,17 +7,15 @@ import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from '../../Constants/Axios';
+import axios from '../../../Constants/Axios';
 import Snackbar from '@mui/material/Snackbar';
 import Stack from '@mui/material/Stack';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
 import MuiAlert from '@mui/material/Alert';
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
 
-function SignupForm() {
+function Home_SignupForm() {
      const navigate = useNavigate ()
      const validationSchema = Yup.object().shape({
       });
@@ -158,4 +156,4 @@ function SignupForm() {
   );
 }
 
-export default SignupForm;
+export default Home_SignupForm;

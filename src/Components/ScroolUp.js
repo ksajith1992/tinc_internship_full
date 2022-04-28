@@ -6,7 +6,7 @@ import ScrollToTop from "react-scroll-to-top";
 function ScroolUp() {
   return (
     <div>
-      <ScrollToTop smooth />
+      <ScrollToTop smooth  style={{marginBottom:75}}/>
     </div>
   );
 }

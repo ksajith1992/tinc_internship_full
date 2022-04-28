@@ -2,31 +2,33 @@ import React from 'react';
 import '../MainCss.css'
 import '../Home/Home.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
-import NaveBar_inner from '../../Components/NaveBar_inner';
 import Footer from '../../Components/Footer';
-import PaymentBox from './PaymentBox';
+import ResponsiveAppBar from '../../Components/NaveBar_inner';
+
 
 function Payment() {
   return (
     <>
-     <div className="row m-0 p-0">
-     <div className="col-sm-12 col-md-12  mb-5 p-0">
-
-        <NaveBar_inner />
-
+     <ResponsiveAppBar />
+      <div class="wrapperpayment">
+        <div className='paymentbox'>
+          <div className="col-50">
+            <div className='course_details'>
+              <div style={{padding:20}}>
+                <h5 style={{color:'black'}}>Course:-<span></span></h5>
+                <h5 style={{color:'black'}}>Description:-<span style={{fontSize:10}}>hvvhvvvhjjkjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj</span></h5>
+                <h5 style={{color:'black'}}>Amount:-<span></span>rs</h5>
+              </div>
+            </div>     
+            <div>
+              <div className="mainbutn">                                              
+                  <button type="button" >Paynow</button>
+              </div>        
+            </div>
+          </div>
         </div>
-
-        <PaymentBox />
-        <div className="col-sm-12 col-md-12  mt-5 p-0">
-
-        <Footer />
-        </div>
-
-        </div>
-    
+      </div> 
+      <Footer/>   
  </>
   )
 }

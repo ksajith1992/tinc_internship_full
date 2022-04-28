@@ -19,7 +19,7 @@ import { Link } from 'react-router-dom'
 
 import logo from '../Images/Logo_dark.svg'
 import { typography } from '@mui/system';
-import Login_button from './Login_button';
+import Logout_button from './Logout_button';
 
 const pages = ['Home', 'Products', 'Testimonials', 'Contact Us'];
 const settings = ['Profile', 'Logout'];
@@ -149,7 +149,7 @@ const ResponsiveAppBar = () => {
               </Button>
           </Box>
 
-          <Login_button />
+          <Logout_button />
 
         </Toolbar>
       </Container>

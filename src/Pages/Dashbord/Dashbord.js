@@ -8,6 +8,7 @@ import ProgressChart from './ProgressChart';
 import ScheduledEvents from './ScheduledEvents';
 import Footer from '../../Components/Footer';
 import Tasks from './Tasks';
+import Chat from '../Chat/Chat';
 
 function Dashbord() {
   return (
@@ -24,11 +25,10 @@ function Dashbord() {
 <ProgressChart />
 <ScheduledEvents />
 <Tasks />
-
-
+<div >
+<Chat/>
+</div>
 <Footer />
-
-   
     </>
   )
 }

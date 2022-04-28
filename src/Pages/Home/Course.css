@@ -53,3 +53,12 @@
 .css-1oqv2c0-MuiPaper-root-MuiCard-root{
 border-radius: 30px !important;
 }
+
+.CourseListBox{
+  background-image: linear-gradient(to right, #e9e9e9, #eaecf1, #e6eff8, #e0f4fe, #d9f9ff);    color: white !important;
+}
+
+.css-ahj2mt-MuiTypography-root{
+  width: 100% !important;
+  margin: 10px !important;
+}
