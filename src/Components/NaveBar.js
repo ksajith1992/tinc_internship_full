@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../Components/NaveBar.css'
+import './NaveBar.css'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -43,7 +43,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" id='mybar' >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography

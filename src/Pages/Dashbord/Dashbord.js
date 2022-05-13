@@ -24,10 +24,11 @@ function Dashbord() {
 
 <ProgressChart />
 <ScheduledEvents />
-<Tasks />
 <div >
 <Chat/>
 </div>
+<Tasks />
+
 <Footer />
     </>
   )

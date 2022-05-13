@@ -10,25 +10,21 @@ import axios from '../../Constants/Axios';
 
 function CourseListBox() {
   const navigate = useNavigate ()
-  const token=localStorage.getItem('token');
+  const token=localStorage.getItem('token_intern');
   const [data, setData] = useState([]);
   useEffect(() => {
     axios.get('purchased_course/' , { headers: {"Authorization" : `Bearer ${token}`} })
 			.then(res => {
+                console.log(res.data,'hbh hh')
                 setData(res.data)			
 			})
 			.catch((error) => {
 			console.log(error)
 			})
   },[])
-  console.log(data,'jkkknk')
-
-  function ToPayment(){
-    navigate("/Payment")
-  }
 
   function ToCourse(){
-    navigate("/Course")
+    navigate("/Dashbord")
   }
 
 
@@ -43,6 +39,7 @@ function CourseListBox() {
     </div>
 
     <div className="col-sm-12 col-md-4 mt-3">
+        {/* {data.map((obj)=> */}
         <Card className='CourseListBox'>
             <Card.Body>
                 <Card.Title className='black'>Python Programming</Card.Title>

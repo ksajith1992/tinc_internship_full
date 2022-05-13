@@ -44,7 +44,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{backgroundColor:'#fff'}}>
       <Container maxWidth="xl" className='MuiAppBar'>
         <Toolbar disableGutters>
           <Typography
@@ -93,7 +93,7 @@ const ResponsiveAppBar = () => {
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center"><Link to='/Home' style={{color:'white'}}>Home</Link></Typography> 
               </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
+              {/* <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center"><Link to='/Home' style={{color:'white'}}>Products</Link></Typography> 
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
@@ -101,7 +101,7 @@ const ResponsiveAppBar = () => {
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center"><Link to='/Home' style={{color:'white'}}>Contact Us</Link></Typography> 
-              </MenuItem>
+              </MenuItem> */}
             </Menu> 
           </Box>
           <Typography
@@ -129,7 +129,7 @@ const ResponsiveAppBar = () => {
               >
                 <Link to='/Home' style={{color:'black'}}>Home</Link>
               </Button>
-              <Button
+              {/* <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'black', display: 'block' }}
               >
@@ -146,7 +146,7 @@ const ResponsiveAppBar = () => {
                 sx={{ my: 2, color: 'black', display: 'block' }}
               >
                 <Link to='/Home' style={{color:'black'}}>Contact Us</Link>
-              </Button>
+              </Button> */}
           </Box>
 
           <Logout_button />

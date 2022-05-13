@@ -20,11 +20,11 @@ function Logout_button() {
         setAnchorElUser(null);
       };
     function logoutfunction(){
-        localStorage.removeItem("token")
+        localStorage.removeItem("token_intern")
         logout()
     }
     function logout(){
-        const token=localStorage.getItem('token')
+        const token=localStorage.getItem('token_intern')
         if(token===null){
             navigate('/Home')
         }

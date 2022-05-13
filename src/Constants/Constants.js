@@ -1,2 +1,2 @@
-export const baseUrl='http://157.245.97.13/api/v1/user/';
-export const URL='http://157.245.97.13/';
+export const baseUrl='https://internshipapi.mapispro.xyz/api/v1/user/';
+export const URL='https://internshipapi.mapispro.xyz/';

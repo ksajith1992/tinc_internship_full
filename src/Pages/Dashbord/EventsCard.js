@@ -9,7 +9,7 @@ import axios from '../../Constants/Axios'
 import Button from 'react-bootstrap/Button';
 
 export default function MediaControlCard() {
-  const token=localStorage.getItem('token');
+  const token=localStorage.getItem('token_intern');
   const [data, setData] = useState([]);
   const theme = useTheme();
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function MediaControlCard() {
     <div className="row"> 
 {data.map((obj)=>
 <div className="col-sm-12 col-md-4 p-4" key={obj.id}>
-<Card sx={{ display: 'flex' }}>
+<Card sx={{ display: 'flex' }} className='Eventbk'>
       <Box className='EventsCard' sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent className='left' sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
@@ -46,7 +46,7 @@ export default function MediaControlCard() {
         </CardContent>
         
       </Box>
-      <Button variant="warning" className='right p-5' id={obj.event_link} onClick={joinnow}><b>JOIN</b></Button>
+      <Button variant="warning" className='p-5 m-2' style={{borderRadius:20}} id={obj.event_link} onClick={joinnow}><b>JOIN</b></Button>
 
     </Card>
     </div>)}

@@ -116,7 +116,13 @@
 
 .EventsCard{
   width: 71%;
-  background-color: rgb(238, 238, 238);
+  background-color: rgb(250, 243, 243);
+}
+.Eventbk{
+  background-color: rgb(250, 243, 243);
+}
+.css-1oqv2c0-MuiPaper-root-MuiCard-root{
+  background-color: rgb(250, 243, 243);
 }
 
 .TaskMainBg{
@@ -228,7 +234,13 @@
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   padding: 10px;
+  border: none;
 }
 .course_details{
   padding: 10px;
+}
+::-webkit-file-upload-button {
+  background: rgb(10, 88, 155);
+  color: white;
+  padding: 1em;
 }

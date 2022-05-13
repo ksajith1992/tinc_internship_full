@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d8974a78.css",
+    "main.js": "/static/js/main.709e50cc.js",
+    "static/js/787.2d2eafff.chunk.js": "/static/js/787.2d2eafff.chunk.js",
+    "static/media/newsletter_bg.png": "/static/media/newsletter_bg.4d908ab9fbf0bc1efd73.png",
+    "static/media/onlinemode.png": "/static/media/onlinemode.fa21b698ffc20d353433.png",
+    "static/media/bg.png": "/static/media/bg.76e4c681f2d64d07810a.png",
+    "static/media/product_bg.png": "/static/media/product_bg.a00df9e47c0bc6cc8dfc.png",
+    "static/media/CourseMode.png": "/static/media/CourseMode.171d4b3635132158f43a.png",
+    "static/media/theo.png": "/static/media/theo.a6648329291f48c3cdcb.png",
+    "static/media/benefits.png": "/static/media/benefits.fe83db0d09647e7a6496.png",
+    "static/media/daniel.png": "/static/media/daniel.36d09850c7abb8c4876f.png",
+    "static/media/shirley.png": "/static/media/shirley.d582df183076e4ede1c4.png",
+    "static/media/Logo_dark.svg": "/static/media/Logo_dark.041caae06442b9d6c4e1f0f7f2085b14.svg",
+    "static/media/logo_white.svg": "/static/media/logo_white.1fda8f99c1da9581dca2f80f97972884.svg",
+    "static/media/notification.mp3": "/static/media/notification.aa8f8c40faaac8a754c9.mp3",
+    "static/media/chat-icon.svg": "/static/media/chat-icon.f032be1de526b90c22006c9ce07d23d8.svg",
+    "static/media/logo-no-bg.svg": "/static/media/logo-no-bg.4d881dc9874adc7364eb819a01793fa1.svg",
+    "index.html": "/index.html",
+    "main.d8974a78.css.map": "/static/css/main.d8974a78.css.map",
+    "main.709e50cc.js.map": "/static/js/main.709e50cc.js.map",
+    "787.2d2eafff.chunk.js.map": "/static/js/787.2d2eafff.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d8974a78.css",
+    "static/js/main.709e50cc.js"
+  ]
+}

@@ -1,9 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component,useState,useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import * as faker from 'faker';
 import Chart from 'chart.js/auto'
+import axios from '../../Constants/Axios';
 
 function ProgressChart() {
+  const [data, setData] = useState([])
+  const token=localStorage.getItem('token_intern');
+  const course_id = '66755d91-de28-4495-bdea-68b17169462d';
+  useEffect(()=>{
+    const formData = new FormData()
+    formData.append("course_id",course_id)
+    axios({
+      method: 'post',
+      url: 'login_otp_sent/',
+      data:formData,
+      headers: {"Authorization" : `Bearer ${token}`}
+    })
+      .then(res => {
+      console.log(res.data,'lllhvhb')
+        })   
+      .catch(err => { if(err.request){ console.log(err.request) } if(err.response){ console.log(err.response) } });
+  },[])
   const options = {
     responsive: true,
     plugins: {
@@ -16,27 +34,7 @@ function ProgressChart() {
       },
     },
   };
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July','august','september','november','december'];
-  const data = {
-    labels,
-    datasets: [
-      {
-        label: 'Attendance',
-        data: labels.map(() => faker.datatype.number(100 )),
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Task Score',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
-      {
-        label: 'Presentation',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
-        backgroundColor: 'rgba(188, 162, 197, 0.5)',
-      },
-    ],
-  };
+  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July','august','september','november','december']
  
   return (
     <div className='row'>

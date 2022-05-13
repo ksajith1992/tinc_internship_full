@@ -7,6 +7,7 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
+import { useNavigate } from 'react-router-dom';
 
 function Login_button() {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -17,6 +18,16 @@ function Login_button() {
       const handleCloseUserMenu = () => {
         setAnchorElUser(null);
       };
+      const token=localStorage.getItem('token_intern');
+      const navigate = useNavigate ()
+      function login(){
+        if(token){
+          navigate("/CourseList")
+        }else{
+          navigate("/Signup")
+        }
+
+      }
   return (
     <>
     
@@ -55,7 +66,7 @@ function Login_button() {
 
                 <MenuItem onClick={handleCloseUserMenu}>
                  
-                  <Typography textAlign="center"><Link to='/Signup' style={{color:'white', fontSize:'12'}}>Login</Link></Typography>
+                  <Typography textAlign="center"><p onClick={login} style={{color:'white', fontSize:'12'}}>Login</p></Typography>
               
                </MenuItem>
             </Menu>

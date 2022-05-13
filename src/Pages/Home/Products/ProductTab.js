@@ -4,11 +4,12 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import ProductCard from './ProductCard';
-import Stocks from './Stocks';
-import Technology from './Technology';
-import Design from './Design';
+import ProductCard from './Tab1';
+import Stocks from './Tab2';
+import Technology from './Tab3';
+
 import axios from '../../../Constants/Axios'
+import Design from './Tab4';
 
 
 function TabPanel(props) {

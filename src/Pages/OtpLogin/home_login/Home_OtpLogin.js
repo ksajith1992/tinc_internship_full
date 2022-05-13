@@ -24,7 +24,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 function Home_OtpLogin() {
   let location = useLocation();
-  const token=location.state.token;
+  const token=location.state.token_intern;
   const navigate = useNavigate ()
   const validationSchema = Yup.object().shape({
   });
@@ -60,7 +60,7 @@ const [ip, setIP] = useState('');
                  }
           })
           .then(function (response) {
-            localStorage.setItem('token',response.data.data.access_token)
+            localStorage.setItem('token_intern',response.data.data.access_token)
             setAlertmsg(response.data.message)
             setMsg('success')
             setOpen(true)

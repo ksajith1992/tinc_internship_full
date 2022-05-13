@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import LinearProgressWithLabel from "./ScoreBar";
 
 function Score() {
-  const token=localStorage.getItem('token');
+  const token=localStorage.getItem('token_intern');
   const [data, setData] = useState([]);
   const [taskdta, setDatatsk] = useState([]);
   const fileRef = useRef();
