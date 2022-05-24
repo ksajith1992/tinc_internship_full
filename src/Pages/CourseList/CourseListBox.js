@@ -15,16 +15,15 @@ function CourseListBox() {
   useEffect(() => {
     axios.get('purchased_course/' , { headers: {"Authorization" : `Bearer ${token}`} })
 			.then(res => {
-                console.log(res.data,'hbh hh')
-                setData(res.data)			
+                setData(res.data.data)			
 			})
 			.catch((error) => {
 			console.log(error)
 			})
   },[])
 
-  function ToCourse(){
-    navigate("/Dashbord")
+  function ToCourse(e){
+    navigate("/Dashbord",{state:{id:e.target.id}})
   }
 
 
@@ -37,24 +36,23 @@ function CourseListBox() {
     <div className="col-12 center">
         <h4 className='center'>My Course List</h4>
     </div>
-
+  {data.map((obj)=>
     <div className="col-sm-12 col-md-4 mt-3">
         {/* {data.map((obj)=> */}
         <Card className='CourseListBox'>
             <Card.Body>
-                <Card.Title className='black'>Python Programming</Card.Title>
+                <Card.Title className='black'>{obj.title}</Card.Title>
                 <Card.Text className='black mg_top'>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
+                    {obj.content}
                 </Card.Text>
             </Card.Body>
         `   <div className="">
                 <div className="row p-2 ">
-                    <Button onClick={ToCourse}> Start Course <FontAwesomeIcon icon={faArrowRight} /></Button>
+                    <Button onClick={ToCourse} id={obj.id}> Start Course <FontAwesomeIcon icon={faArrowRight} /></Button>
                 </div>`
             </div>
         </Card>
-    </div>
+    </div>)}
 
 </div>
 

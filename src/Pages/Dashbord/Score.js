@@ -48,15 +48,15 @@ function Score() {
 
 <div className="col-sm-12 col-md-6 p-5 left">
 
-<p class="black"></p>
+<p className="black"></p>
 
-<h5 class="black">{obj.task_name?obj.task_name:''}</h5>
+<h5 className="black">{obj.task_name?obj.task_name:''}</h5>
 {/* <p className='fullwid gray'>Due Date : 15 May 2022 10:11 am </p> */}
 
 </div>
 
 <div className="col-sm-12 col-md-6 p-5 right_side">
-    <h5 class="black">{obj.score?'Total score :'+obj.score+'out of 100':''}</h5>
+    <h5 className="black">{obj.score?'Total score :'+obj.score+'out of 100':''}</h5>
 </div> 
 
 <div className="row ">
@@ -74,7 +74,7 @@ function Score() {
 </div>
 
 <div className="col-sm-12 col-md-12 p-5 pt-1 left">
-  x <Box sx={{ width: '100%' }}>
+  <Box sx={{ width: '100%' }}>
       <LinearProgressWithLabel value={obj.score} />
     </Box>
 </div>

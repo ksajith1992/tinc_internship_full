@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import '../MainCss.css'
 import '../Home/Home.css'
-
-
+import { useLocation } from 'react-router-dom';
 import NaveBar_inner from '../../Components/NaveBar_inner';
 import ProgressChart from './ProgressChart';
 import ScheduledEvents from './ScheduledEvents';
@@ -11,21 +10,18 @@ import Tasks from './Tasks';
 import Chat from '../Chat/Chat';
 
 function Dashbord() {
+  let location = useLocation()
+  const id=location.state.id
   return (
     <>
     <NaveBar_inner />
     
-<div className="row p-4">
-  <div className="col-sm-12 col-md-12 p-5">
-    <h1 className='yellow_head'>Hi, Alex</h1>
-    <div className='dashbord_head_p mt-4'>See your progress here</div>
-  </div>
-</div>
 
-<ProgressChart />
+
+<ProgressChart items={id}/>
 <ScheduledEvents />
 <div >
-<Chat/>
+{/* <Chat/> */}
 </div>
 <Tasks />
 

@@ -18,7 +18,6 @@ function CertificateBox() {
       headers:{"Authorization" : `Bearer ${token}`}
     })
 			.then(res => {
-        console.log(res.data,'kooooooo')
 			setData(res.data.data);
 			})
 			.catch(err=>{
@@ -40,7 +39,7 @@ function CertificateBox() {
   <Card.Title className='black'>{data.data?data.data.course:''}</Card.Title>
     <Card.Subtitle className="mb-2 text-muted">{data.data?data.data.enroll:''}</Card.Subtitle>
     <Card.Text className='black '>
-    <h6 class="black mt-5 pt-3 center">{data.message}<FontAwesomeIcon icon={faCheck} /> </h6>
+    <h6 className="black mt-5 pt-3 center">{data.message}<FontAwesomeIcon icon={faCheck} /> </h6>
 
     </Card.Text>
 

@@ -1,46 +1,57 @@
 import React, { Component,useState,useEffect } from 'react';
-import { Bar } from 'react-chartjs-2';
-import * as faker from 'faker';
-import Chart from 'chart.js/auto'
+import { Chart } from "react-google-charts";
 import axios from '../../Constants/Axios';
 
-function ProgressChart() {
+function ProgressChart(probs) {
   const [data, setData] = useState([])
+  const [user, setUser] = useState([])
   const token=localStorage.getItem('token_intern');
-  const course_id = '66755d91-de28-4495-bdea-68b17169462d';
+  const course_id = probs.items;
   useEffect(()=>{
+    axios.get('user_details/', { headers: {"Authorization" : `Bearer ${token}`} })
+    .then(res => {
+      setUser(res.data.data[0])
+      console.log('res',res.data.data[0])
+    })
+    .catch(err => { if(err.request){ console.log(err.request) } if(err.response){ console.log(err.response) } });
     const formData = new FormData()
     formData.append("course_id",course_id)
     axios({
       method: 'post',
-      url: 'login_otp_sent/',
+      url: 'graph_data/',
       data:formData,
       headers: {"Authorization" : `Bearer ${token}`}
     })
-      .then(res => {
-      console.log(res.data,'lllhvhb')
-        })   
+      .then(res => {  
+        console.log(res.data.data,'dsfsf')      
+        setData(res.data.data)
+        // setLebel(res.data.data["labels"])     
+      })   
       .catch(err => { if(err.request){ console.log(err.request) } if(err.response){ console.log(err.response) } });
-  },[])
+  },[])  
   const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Total score:85',
-      },
+    chart: {
+      title: "Course Performance",
+      subtitle: "Attendance, Presentation, and Task Score on weekly",
     },
-  };
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July','august','september','november','december']
- 
+  }; 
   return (
     <div className='row'>
+      <div className="row p-4">
+      <div className="col-sm-12 col-md-12 p-5">
+        <h1 className='yellow_head'>Hi, {user.first_name}</h1>
+        <div className='dashbord_head_p mt-4'>See your progress here</div>
+      </div>
+    </div>
       <div className='col-lg-2 col-md-2'></div>
       <div className='col-lg-8 col-md-8'>
-        <Bar options={options} data={data} />;
+      <Chart
+      chartType="Bar"
+      width="100%"
+      height="400px"
+      data={data}
+      options={options}
+    />
       </div>
       <div className='col-lg-2 col-md-2'></div>
     </div>

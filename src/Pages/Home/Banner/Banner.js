@@ -1,7 +1,7 @@
 import React from 'react';
 import NaveBar from '../../../Components/NaveBar';
-
 import Button from 'react-bootstrap/Button';
+import {Link} from "react-dom";
 
 
 
@@ -16,8 +16,8 @@ function Banner() {
 
     <div className="col-sm-6 col-md-6 mt-5">
     <h1 className='pt-5'>Become a professional with TINC Internship</h1>
-    <p>Create React App doesn handle backend logic so you can use it with any backend you want. Under the hood, 
-      it uses Babel and webpack, but you dont need to know anything about them.</p>
+    <p>You can learn how to drive a car from the books with definitions and meanings.But is that enough to drive a car? Here comes the need of practical knowledge and Tincacademy invites you to various academic and non-academic internships that are provided under various departments of our company
+by professionals.</p>
 
     <Button variant="warning" className='start_button'>GET STARTED</Button>
 

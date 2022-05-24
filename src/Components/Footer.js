@@ -49,7 +49,6 @@ function Footer() {
           headers:{"Authorization" : `Bearer ${token}`}
         })
           .then(res => {
-            console.log(res.data,'kooooooo')
             setAlertmsg('We will contact you soon!!!')
             setMsg('success')
             setOpen(true)
@@ -105,15 +104,13 @@ function Footer() {
 
 <h5 className='mt-4 footer_left'>ABOUT US </h5>
 <div className="footer_links mt-3">
+  <ul>
+    <li>  <Link to="/AboutUs"> <FontAwesomeIcon icon={faArrowRight} /> About</Link></li>
 
-<ul>
-<li>  <Link to="/AboutUs"> <FontAwesomeIcon icon={faArrowRight} /> About</Link></li>
+{/* <li><Link to="/Services"> <FontAwesomeIcon icon={faArrowRight} /> Services</Link></li> */}
 
-<li><Link to="/Services"> <FontAwesomeIcon icon={faArrowRight} /> Services</Link></li>
-
-<li><Link to="/Faq"> <FontAwesomeIcon icon={faArrowRight} /> FAQ</Link></li>
-
-</ul>
+    <li><Link to="/"> <FontAwesomeIcon icon={faArrowRight} /> FAQ</Link></li>
+  </ul>
 </div>
 
 <div className="footer_links">
@@ -151,13 +148,13 @@ function Footer() {
 <div className="footer_links mt-3">
 
 <ul>
-<li><Link to="/Privacy"> <FontAwesomeIcon icon={faArrowRight} /> Privacy policy</Link></li>
+<li><Link to="/Privacypolicy"> <FontAwesomeIcon icon={faArrowRight} /> Privacy policy</Link></li>
 
 <li><Link to="/Disclaimer"> <FontAwesomeIcon icon={faArrowRight} /> Disclaimer </Link></li>
 
-<li><Link to="/Terms"> <FontAwesomeIcon icon={faArrowRight} /> Terms & Conditions</Link></li>
+<li><Link to="/Termsandconditions"> <FontAwesomeIcon icon={faArrowRight} /> Terms & Conditions</Link></li>
 
-<li><Link to="/Company"> <FontAwesomeIcon icon={faArrowRight} /> Company</Link></li>
+<li><Link to="/Cancelationpolicy"> <FontAwesomeIcon icon={faArrowRight} />Cancelation Policy</Link></li>
 
 <li>
 <img src={logo_footer} className='mt-5' alt='logo'/>

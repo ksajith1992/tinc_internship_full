@@ -3,16 +3,15 @@ import NaveBar_inner from '../../../Components/NaveBar_inner';
 import 'react-tabs/style/react-tabs.css';
 import Footer from '../../../Components/Footer';
 import { useNavigate } from 'react-router-dom';
-
 import Button from 'react-bootstrap/Button';
-import '../../Home/Course.css'
+import '../../Home/Course.css';
 import ModulesIncluded from './ModulesIncluded';
 import Features from './Features';
 import Clients from '../Clients/Clients';
-
 import ProductsRating from './ProductsRating';
 import { useLocation } from 'react-router-dom';
-import axios from '../../../Constants/Axios'
+import axios from '../../../Constants/Axios';
+import logo from '../../../Images/Logo_dark.svg';
 
 
 function Course() { 
@@ -27,7 +26,7 @@ function Course() {
       axios.get('user_paid/', { headers: {"Authorization" : `Bearer ${token}`} })
       .then(res => {
         if(res.data.message==='user not paid'){
-          navigate("/Payment",{state:{id:id}})
+          displayRazorpay()
         }else{
           navigate("/CourseList")
         }  
@@ -41,28 +40,85 @@ function Course() {
   }
   const [data, setData] = useState([])
   useEffect(()=>{
-    console.log(token)
     axios.get('course_details/'+id+'/')
     .then(res => {
-      console.log(res.data.data)
       setData(res.data.data[0]) 
-      paymentorder()  
+      axios({
+        method: 'post',
+        url: 'payment/'+res.data.data[0].id+'/',
+        headers: {"Authorization" : `Bearer ${token}`}
+    })
+    .then(res => {
+       console.log(res.data.data.order.order_payment_id)
+       setOrder(res.data.data.order.order_payment_id)
+       setAmount(res.data.data.order.order_amount)
+    })
+    .catch(err => { if(err.request){ console.log(err.request) } if(err.response){ console.log(err.response) } });  
     })
     .catch(err => { if(err.request){ console.log(err.request) } if(err.response){ console.log(err.response) } });   
   },[])
-  function paymentorder(){
-    console.log(data,'data')
-    axios({
+  const [order_id, setOrder] = useState('')
+  const[amount, setAmount] = useState('')
+  const loadScript =(src)=>{
+    return new Promise((resolve)=>{
+        const script = document.createElement('script')
+        script.src=src
+        script.onload=()=>{
+            resolve(true)
+        }
+        script.onerror=()=>{
+            resolve(false)
+        }
+        document.body.appendChild(script)
+    })
+}
+const [Success, setSuccess] = useState([]);
+const displayRazorpay= async()=>{
+    const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+    if(!res){
+        alert('You are offline...Failed to load Razorpay SDK')
+        return
+    }
+    console.log(order_id)
+    const options={
+        key:"rzp_live_X0UtOWBFN25Ny7",
+        currency:"INR",
+        amount:Number(amount),
+        name:'Internship.tinc.pro',
+        order_id:order_id,
+        description:"thanks for purchasing",
+        image:{logo},
+        handler:function(res){
+            setSuccess(res);
+            successresponse(res);
+            console.log(res,'success')
+        },
+        prefill:{
+            name:"Tinc Pro"
+        }
+    };
+    const paymentObject = new window.Razorpay(options)
+    paymentObject.open()
+}
+function successresponse(e){
+  console.log(e,'kast')
+  const formData = new FormData()
+  formData.append("razorpay_payment_id",e.razorpay_payment_id)
+  formData.append("razorpay_order_id",e.razorpay_order_id)
+  formData.append("razorpay_signature",e.razorpay_signature)
+  axios({
       method: 'post',
-      url: 'payment/'+data.id+'/',
+      url: 'payment_success/',
+      data:formData,
       headers: {"Authorization" : `Bearer ${token}`}
   })
   .then(res => {
-     console.log(res)
+    console.log(res.data)
+      alert(res.data.message)
+      navigate('/CourseList')
   })
   .catch(err => { if(err.request){ console.log(err.request) } if(err.response){ console.log(err.response) } }); 
-  }
-console.log(data,'jop')
+}
   return <>
     <div className="Course_bg"> 
       <NaveBar_inner />
@@ -78,16 +134,14 @@ console.log(data,'jop')
           <h1 className='blue_side'>INR {data.price}</h1><br/>
         </div>
       </div>
- 
-</div>
-
-<ModulesIncluded />
+      {/* <ModulesIncluded />
 
 <Features />
 
-<Clients />
+<Clients /> */}
 
 <Footer />
+</div>
   </>;
 }
 

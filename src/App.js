@@ -20,6 +20,11 @@ import Home_Signup from './Pages/OtpLogin/home_login/Home_Signup';
 import Home_OtpLogin from './Pages/OtpLogin/home_login/Home_OtpLogin';
 import Productspage from './Pages/Home/Products/Product_page/Productspage';
 import CourseList from './Pages/CourseList/CourseList';
+import Privacypolicy from './Pages/AboutUs/Privacypolicy';
+import AboutUs from './Pages/AboutUs/AboutUs';
+import Termsandconditions from './Pages/AboutUs/Termsandconditions';
+import Disclaimer from './Pages/AboutUs/Disclaimer';
+import Cancelationpolicy from './Pages/AboutUs/Cancelationpolicy';
 
 
 
@@ -42,6 +47,11 @@ function App() {
         <Route path="/Payment" element={<Payment />}/>  
         <Route path="/CourseList" element={<CourseList />}/>  
         <Route path="/Course" element={<Course />}/> 
+        <Route path="/Privacypolicy" element={<Privacypolicy />}/>
+        <Route path="/AboutUs" element={<AboutUs />}/>
+        <Route path="/Termsandconditions" element={<Termsandconditions />}/>
+        <Route path="/Disclaimer" element={<Disclaimer />}/>
+        <Route path="/Cancelationpolicy" element={<Cancelationpolicy />}/>
         
       </Routes>
     </div>

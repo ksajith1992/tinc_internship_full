@@ -60,8 +60,9 @@ function Technology() {
 <div className="col-sm-12 col-md-4 col-lg-3 mt-2" key={obj.id}>
 <Card className='card_product'>
 
-  <Card.Body style={{minWidth:750}}>
-    <Card.Title className='black'>{obj.title}</Card.Title>
+  <Card.Body style={{minWidth:1000}}>
+    <Card.Title className='black' style={{maxWidth:300}}>{obj.title}
+    </Card.Title>
     <Card.Subtitle className="mb-2 text-muted"><ProductsRating />2457 Enrollments</Card.Subtitle>
     <Card.Text className='black mg_top text-muted'>
     {obj.module_description}
