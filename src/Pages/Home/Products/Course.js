@@ -43,6 +43,7 @@ function Course() {
     axios.get('course_details/'+id+'/')
     .then(res => {
       setData(res.data.data[0]) 
+      console.log(res.data.data[0].id,'llll')
       axios({
         method: 'post',
         url: 'payment/'+res.data.data[0].id+'/',
@@ -52,6 +53,7 @@ function Course() {
        console.log(res.data.data.order.order_payment_id)
        setOrder(res.data.data.order.order_payment_id)
        setAmount(res.data.data.order.order_amount)
+       console.log(res.data.data.order.order_amount,'amnt')
     })
     .catch(err => { if(err.request){ console.log(err.request) } if(err.response){ console.log(err.response) } });  
     })

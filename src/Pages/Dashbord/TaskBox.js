@@ -45,7 +45,7 @@ function Uploadfile(e){
     data:formData,
     headers:{"Authorization" : `Bearer ${token}`}
   })
-  .then(function (response) {
+  .then(function (res) {
     setAlertmsg('Upload Task Successfully')
     setMsg('success')
     setOpen(true)
